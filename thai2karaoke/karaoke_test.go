@@ -1,6 +1,19 @@
 package thai2karaoke
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
+
+func TestWorld(t *testing.T) {
+	w := "ดีจ้าเด็กน้อยย"
+	tag := classify(w)
+	got := convert(w, tag)
+	if got == "" {
+		t.Errorf("convert returned empty for %s", w)
+	}
+	fmt.Println(got)
+}
 
 func TestTranslate(t *testing.T) {
 	tests := []struct {
